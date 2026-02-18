@@ -21,7 +21,7 @@ namespace EHR_Application.Presentation.Controllers
 
         /* ---------------- BASIC CRUD ---------------- */
 
-        // Get all appointments with OData query options
+        // Get all appointments with OData query option
         [HttpGet]
         // [Authorize]
         [EnableQuery(AllowedQueryOptions = ODataQueryService.AppointmentQueryOptions, MaxTop = 100)]
