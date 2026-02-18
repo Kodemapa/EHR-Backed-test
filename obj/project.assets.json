@@ -2568,11 +2568,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\EHR-App\\EHR Application\\EHR Application\\EHR Application.csproj",
+      "projectUniqueName": "D:\\Madhu\\EHR-Yml\\EHR-Backed-test\\EHR Application.csproj",
       "projectName": "EHR Application",
-      "projectPath": "D:\\EHR-App\\EHR Application\\EHR Application\\EHR Application.csproj",
+      "projectPath": "D:\\Madhu\\EHR-Yml\\EHR-Backed-test\\EHR Application.csproj",
       "packagesPath": "C:\\Users\\kodem\\.nuget\\packages\\",
-      "outputPath": "D:\\EHR-App\\EHR Application\\EHR Application\\obj\\",
+      "outputPath": "D:\\Madhu\\EHR-Yml\\EHR-Backed-test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
