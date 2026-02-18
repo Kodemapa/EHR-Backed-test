@@ -1,0 +1,17 @@
+/* Custom styling for Swagger schema panels */
+.swagger-ui .model-box .model,
+.swagger-ui .model-box .model-title,
+.swagger-ui .responses-table .model,
+.swagger-ui .responses-table .model-title,
+.swagger-ui .response-col_description pre,
+.swagger-ui .opblock-body pre {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.swagger-ui .response-col_description pre,
+.swagger-ui .opblock-body pre {
+    background-color: #f7f7f9;
+    border-radius: 4px;
+    padding: 12px;
+}

@@ -1,0 +1,3285 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "EHR API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Doctors": {
+      "get": {
+        "tags": [
+          "Doctors"
+        ],
+        "parameters": [
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter results using OData syntax.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order results by one or more fields.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Project specific fields from the response.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related navigation properties.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "Limit the number of returned entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "Skip the specified number of entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "description": "Include the total count of matching entities.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "$search",
+            "in": "query",
+            "description": "Search across text fields where supported.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/json;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DoctorDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Doctors"
+        ],
+        "parameters": [
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter results using OData syntax.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order results by one or more fields.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Project specific fields from the response.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related navigation properties.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "Limit the number of returned entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "Skip the specified number of entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "description": "Include the total count of matching entities.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "$search",
+            "in": "query",
+            "description": "Search across text fields where supported.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.streaming=true;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.streaming=true;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.streaming=false;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;odata.streaming=false;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/json;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Doctors/{id}": {
+      "get": {
+        "tags": [
+          "Doctors"
+        ],
+        "operationId": "GetDoctorById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter results using OData syntax.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order results by one or more fields.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Project specific fields from the response.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related navigation properties.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "Limit the number of returned entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "Skip the specified number of entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "description": "Include the total count of matching entities.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "$search",
+            "in": "query",
+            "description": "Search across text fields where supported.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=full;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.metadata=none;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/json;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoctorDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Doctors"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter results using OData syntax.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order results by one or more fields.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Project specific fields from the response.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related navigation properties.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "Limit the number of returned entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "Skip the specified number of entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "description": "Include the total count of matching entities.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "$search",
+            "in": "query",
+            "description": "Search across text fields where supported.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=full;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.metadata=none;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.streaming=true;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.streaming=true;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.streaming=false;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;odata.streaming=false;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/json;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDoctorDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Doctors"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter results using OData syntax.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order results by one or more fields.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Project specific fields from the response.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related navigation properties.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "Limit the number of returned entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "Skip the specified number of entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "description": "Include the total count of matching entities.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "$search",
+            "in": "query",
+            "description": "Search across text fields where supported.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "tags": [
+          "EHR Application"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Patients": {
+      "get": {
+        "tags": [
+          "Patients"
+        ],
+        "parameters": [
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter results using OData syntax.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order results by one or more fields.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Project specific fields from the response.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related navigation properties.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "Limit the number of returned entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "Skip the specified number of entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "description": "Include the total count of matching entities.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "$search",
+            "in": "query",
+            "description": "Search across text fields where supported.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;IEEE754Compatible=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/json;IEEE754Compatible=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Patients"
+        ],
+        "parameters": [
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter results using OData syntax.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order results by one or more fields.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Project specific fields from the response.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related navigation properties.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "Limit the number of returned entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "Skip the specified number of entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "description": "Include the total count of matching entities.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "$search",
+            "in": "query",
+            "description": "Search across text fields where supported.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.streaming=true;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.streaming=true;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.streaming=false;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;odata.streaming=false;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/json;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePatientDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Patients/{id}": {
+      "get": {
+        "tags": [
+          "Patients"
+        ],
+        "operationId": "GetPatientById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter results using OData syntax.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order results by one or more fields.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Project specific fields from the response.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related navigation properties.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "Limit the number of returned entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "Skip the specified number of entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "description": "Include the total count of matching entities.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "$search",
+            "in": "query",
+            "description": "Search across text fields where supported.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=minimal;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=full;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.metadata=none;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.streaming=true;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.streaming=true;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.streaming=false;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;odata.streaming=false;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;IEEE754Compatible=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/json;IEEE754Compatible=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Patients"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter results using OData syntax.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order results by one or more fields.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Project specific fields from the response.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related navigation properties.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "Limit the number of returned entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "Skip the specified number of entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "description": "Include the total count of matching entities.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "$search",
+            "in": "query",
+            "description": "Search across text fields where supported.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=full;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.metadata=none;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.streaming=true;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.streaming=true;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.streaming=false;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;odata.streaming=false;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;IEEE754Compatible=false": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/json;IEEE754Compatible=true": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePatientDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Patients"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter results using OData syntax.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order results by one or more fields.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Project specific fields from the response.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related navigation properties.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "Limit the number of returned entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "Skip the specified number of entities.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "description": "Include the total count of matching entities.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "$search",
+            "in": "query",
+            "description": "Search across text fields where supported.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreateDoctorDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "specialization": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreatePatientDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date"
+          },
+          "medicalRecordNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DoctorDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "specialization": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PatientDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date"
+          },
+          "medicalRecordNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateDoctorDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "specialization": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdatePatientDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date"
+          },
+          "medicalRecordNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Provide a valid OAuth 2.0 access token.",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

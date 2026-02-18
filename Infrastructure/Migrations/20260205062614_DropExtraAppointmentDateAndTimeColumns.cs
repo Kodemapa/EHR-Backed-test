@@ -1,0 +1,23 @@
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+namespace EHR_Application.Infrastructure.Migrations
+{
+    /// <inheritdoc />
+    public partial class DropExtraAppointmentDateAndTimeColumns : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.Sql("ALTER TABLE \"Patients\" DROP COLUMN IF EXISTS \"AppointmentDate\";");
+            migrationBuilder.Sql("ALTER TABLE \"Patients\" DROP COLUMN IF EXISTS \"AppointmentTime\";");
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+
+        }
+    }
+}

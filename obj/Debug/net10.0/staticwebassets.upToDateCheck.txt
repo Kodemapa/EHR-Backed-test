@@ -1,0 +1,2 @@
+wwwroot\swagger-custom.css
+D:\EHR-App\EHR Application\EHR Application\wwwroot\swagger-custom.css
