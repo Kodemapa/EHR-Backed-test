@@ -1,0 +1,49 @@
+name: Build, Version, and Store DLL
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # REQUIRED for 'git describe' to find tags!
+
+      - name: Set up .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          # Note: '10.0.0' is likely invalid/future. Ensure this matches your real SDK.
+          # Standard versions are '8.0.x' or '9.0.x'.
+          dotnet-version: '10.0.x' 
+
+      - name: Restore dependencies
+        # Quotes are needed because your file name has a space
+        run: dotnet restore "EHR Application.sln"
+
+      - name: Build the DLL
+        run: dotnet build "EHR Application.sln" --configuration Release
+
+      - name: Set version based on Git tag or commit
+        id: version
+        shell: bash  # <--- CRITICAL: Allows bash syntax on Windows
+        run: |
+          # The 2>/dev/null suppresses errors if no tags exist yet
+          VERSION=$(git describe --tags --abbrev=0 2>/dev/null || echo "v1.0.0")
+          echo "VERSION=${VERSION}" >> $GITHUB_ENV
+          echo "Detected version: ${VERSION}"
+
+      - name: Publish the DLL
+        # Fixed: Use /p:Version to set the version, and point to correct .csproj
+        run: dotnet publish "EHR Application.csproj" -c Release -o ./output /p:Version=${{ env.VERSION }}
+
+      - name: Upload DLL as an artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: EHR-Application-${{ env.VERSION }}
+          path: ./output
