@@ -3,7 +3,7 @@ name: Build, Version, and Store DLL
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
