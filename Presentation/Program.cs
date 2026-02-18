@@ -95,7 +95,8 @@ using (var scope = app.Services.CreateScope())
     try
     {
         logger.LogInformation("Applying database migrations.");
-        db.Database.Migrate();  // Apply any pending migrations to the database
+        // db.Database.Migrate();  // Apply any pending migrations to the database
+        db.Database.EnsureCreated(); // Ensure the database is created (for In-Memory)
         logger.LogInformation("Database migrations applied successfully.");
     }
     catch (Exception ex)
@@ -111,6 +112,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger(options =>
     {
         options.RouteTemplate = "openapi/{documentName}.json";
+    });
+
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/openapi/v1.json", "EHR API v1");
+        options.RoutePrefix = "swagger"; 
     });
     
     app.MapScalarApiReference(options =>

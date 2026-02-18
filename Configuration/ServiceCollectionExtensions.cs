@@ -27,7 +27,7 @@ public static class ServiceCollectionExtensions
 
         services.AddDbContext<EhrDbContext>((provider, options) =>
         {
-            options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
+            options.UseInMemoryDatabase("EhrDb");
             options.AddInterceptors(provider.GetRequiredService<AuditSaveChangesInterceptor>());
         });
 
