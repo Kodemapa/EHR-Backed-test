@@ -18,20 +18,19 @@ jobs:
       - name: Set up .NET SDK
         uses: actions/setup-dotnet@v3
         with:
-          # Note: '10.0.0' is likely invalid/future. Ensure this matches your real SDK.
-          # Standard versions are '8.0.x' or '9.0.x'.
-          dotnet-version: '10.0.x' 
+          # Fixed: Use a valid .NET SDK version (8.0.x is LTS, 9.0.x is current)
+          dotnet-version: '8.0.x' 
 
       - name: Restore dependencies
-        # Quotes are needed because your file name has a space
+        # Restore using the solution file
         run: dotnet restore "EHR Application.sln"
 
-      - name: Build the DLL
-        run: dotnet build "EHR Application.sln" --configuration Release
+      - name: Build the solution in Release mode
+        run: dotnet build "EHR Application.sln" --configuration Release --no-restore
 
       - name: Set version based on Git tag or commit
         id: version
-        shell: bash  # <--- CRITICAL: Allows bash syntax on Windows
+        shell: bash
         run: |
           # The 2>/dev/null suppresses errors if no tags exist yet
           VERSION=$(git describe --tags --abbrev=0 2>/dev/null || echo "1.0.0")
@@ -39,12 +38,12 @@ jobs:
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
           echo "Detected version: ${VERSION}"
 
-      - name: Publish the DLL
-        # Fixed: Use /p:Version to set the version, and point to correct .csproj
-        run: dotnet publish "EHR Application.csproj" -c Release -o ./output /p:Version=${{ env.VERSION }}
+      - name: Publish the DLL in Release mode
+        # Publish the specific project in Release configuration
+        run: dotnet publish "EHR Application.csproj" --configuration Release --no-build -o ./output /p:Version=${{ env.VERSION }}
 
       - name: Upload DLL as an artifact
         uses: actions/upload-artifact@v4
         with:
           name: EHR-Application-${{ env.VERSION }}
-          path: ./output
+          path: ./output/**/*.dll
