@@ -34,7 +34,8 @@ jobs:
         shell: bash  # <--- CRITICAL: Allows bash syntax on Windows
         run: |
           # The 2>/dev/null suppresses errors if no tags exist yet
-          VERSION=$(git describe --tags --abbrev=0 2>/dev/null || echo "v1.0.0")
+          VERSION=$(git describe --tags --abbrev=0 2>/dev/null || echo "1.0.0")
+          VERSION="${VERSION#v}"
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
           echo "Detected version: ${VERSION}"
 
