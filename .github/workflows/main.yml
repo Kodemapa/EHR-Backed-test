@@ -43,7 +43,7 @@ jobs:
         run: dotnet publish "EHR Application.csproj" -c Release -o ./output /p:Version=${{ env.VERSION }}
 
       - name: Upload DLL as an artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: EHR-Application-${{ env.VERSION }}
           path: ./output
